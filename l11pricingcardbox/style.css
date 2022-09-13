@@ -1,0 +1,183 @@
+:root {
+    --color1: linear-gradient(to right, steelblue, skyblue);
+    --color2: linear-gradient(to top, steelblue, skyblue);
+    --color3: linear-gradient(to left, steelblue, skyblue);
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.title h3 {
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+    margin: 0px 0px 10px;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+}
+
+.toggle-container>* {
+    margin: 0px 3px;
+}
+
+.toggle-checkbox {
+    visibility: hidden;
+}
+
+.toggle-checkbox:checked+.toggle-label {
+    background-color: steelblue;
+}
+
+.toggle-label {
+    width: 40px;
+    height: 20px;
+    background-color: #bbb;
+    border-radius: 50px;
+    margin: 0 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.toggle-label .ball {
+    width: 20px;
+    height: 100%;
+    background: #f4f4f4;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.ball {
+    animation: offani 0.5s forwards;
+}
+
+.toggle-checkbox:checked+.toggle-label .ball {
+    animation-name: onani;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes onani {
+    0% {
+        top: 0;
+        left: 0;
+        transform: translate(0px) scale(1);
+    }
+    50% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        top: 0;
+        left: calc(100% - 20px);
+        transform: scale(1);
+    }
+}
+
+@keyframes offani {
+    0% {
+        top: 0;
+        left: calc(100% - 20px);
+        transform: translate(0px) scale(1);
+    }
+    50% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        top: 0;
+        left: 0;
+        transform: scale(1);
+    }
+}
+
+.card-container {
+    margin-top: 80px;
+    display: flex;
+}
+
+.price-box {
+    width: 400px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    padding-bottom: 30px;
+    /* transform: scale(0.8); */
+}
+
+.price-box p {
+    font-size: 20px;
+    background-color: steelblue;
+    padding: 20px 0;
+}
+
+.price-box h3 span {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.price-box h3 span:nth-of-type(2) {
+    font-size: 50px;
+}
+
+.list-group {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+.price-list .list-group li {
+    font-size: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.price-list .list-group:first-child {
+    border-top: 1px solid #eee;
+}
+
+.price-list .btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: green;
+    font-size: 18px;
+    padding: 18px 45px;
+    border-radius: 5px;
+    transition: transform .3s ease-in;
+}
+
+.price-list .btn:hover {
+    transform: scale(1.1);
+}
+
+.box {
+    color: #fff;
+    padding: 30px 0;
+}
+
+.box1,
+.btn1 {
+    background: var(--color1);
+}
+
+.box2,
+.btn2 {
+    background: var(--color2);
+}
+
+.box3,
+.btn3 {
+    background: var(--color3);
+}
+
+.price-box:nth-child(2) {
+    transform: scale(1.1);
+}
